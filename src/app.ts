@@ -2,7 +2,7 @@ import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 
-import { IRouteDescription, IAppConfig } from './interfaces/index.d';
+import { IAppConfig, IRouteDescription} from './interfaces/index.d';
 
 export default class Application {
   private app: express.Express = express();

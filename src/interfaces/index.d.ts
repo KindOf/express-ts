@@ -1,10 +1,10 @@
 import * as express from 'express';
 
-export interface RouteDescription {
+export interface IRouteDescription {
   path: string,
   router: express.Router
 }
 
-export interface AppConfig {
+export interface IAppConfig {
   port: number
 }
