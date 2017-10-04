@@ -2,16 +2,13 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 
-interface routeDescription {
-  path: string,
-  router: express.Router
-};
+import { RouteDescription, AppConfig } from './interfaces/index.d';
 
 export default class Application {
   private app: express.Express = express();
   constructor(
-    private config: {port: number},
-    private routes: Array<routeDescription>
+    private config: AppConfig,
+    private routes: Array<RouteDescription>
   ) {}
 
   public start(): void {
