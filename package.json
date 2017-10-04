@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/KindOf/express-ts.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "typescript",
+    "api",
+    "boilerplate"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
