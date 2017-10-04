@@ -1,0 +1,33 @@
+{
+  "name": "express-ts",
+  "version": "1.0.0",
+  "description": "express API server with ts",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./app/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KindOf/express-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KindOf/express-ts/issues"
+  },
+  "homepage": "https://github.com/KindOf/express-ts#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.16.5",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/express": "^4.0.37",
+    "@types/morgan": "^1.7.33",
+    "@types/node": "^8.0.31",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.1",
+    "morgan": "^1.9.0",
+    "typescript": "^2.5.3"
+  }
+}
