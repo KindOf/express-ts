@@ -6,5 +6,6 @@ export interface IRouteDescription {
 }
 
 export interface IAppConfig {
-  port: number
+  port: number,
+  stage: string,
 }

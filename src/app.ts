@@ -1,6 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
+import * as morgan from 'morgan';
 
 import { IAppConfig, IRouteDescription} from './interfaces/index.d';
 
@@ -24,6 +25,7 @@ export default class Application {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
     this.app.use(cookieParser());
+    this.app.use(this.config.stage === 'dev' ? morgan('short') : morgan('tiny'));
   }
 
   private initRoutes(routes) {
