@@ -2,15 +2,12 @@ import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
 
-interface IRouteDescription {
-  path: string;
-  router: express.Router;
-}
+import { IRouteDescription, IAppConfig } from './interfaces/index.d';
 
 export default class Application {
   private app: express.Express = express();
   constructor(
-    private config: {port: number},
+    private config: IAppConfig,
     private routes: IRouteDescription[],
   ) {}
 
