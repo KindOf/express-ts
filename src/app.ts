@@ -5,7 +5,6 @@ import * as morgan from 'morgan';
 
 import { IAppConfig, IRouteDescription} from './interfaces/index.d';
 
-import requestLogger from './middleware/request-logger';
 import { logger } from './utils/logger';
 
 export default class Application {
@@ -20,6 +19,11 @@ export default class Application {
     this.initMiddleware();
     this.initRoutes(this.routes);
 
+    // 404 handler (should be the last middleware)
+    this.app.use((req, res, next) => {
+      res.status(404).send("Sorry can't find that!");
+    });
+
     this.app.listen(this.config.port, 'localhost', () => {
       this.logger.info(`Server is runing on port ${this.config.port}`);
     });
@@ -29,19 +33,7 @@ export default class Application {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
     this.app.use(cookieParser());
-
-    this.app.use(morgan('short', {
-      stream: {
-        write: (message) => {
-          this.logger.warn(message);
-        },
-      },
-    }));
-
-    // 404 handler (should be the last middleware)
-    this.app.use((req, res, next) => {
-      res.status(404).send("Sorry can't find that!");
-    });
+    this.app.use(morgan('short', this.logger.morganReqLogOption()));
   }
 
   private initRoutes(routes): void {
