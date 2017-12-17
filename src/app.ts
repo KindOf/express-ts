@@ -36,7 +36,7 @@ export default class Application {
     this.app.use(morgan('short', this.logger.morganReqLogOption()));
   }
 
-  private initRoutes(routes): void {
+  private initRoutes(routes: IRouteDescription[]): void {
     routes.forEach((route) => {
       this.app.use(route.path, route.router);
     });

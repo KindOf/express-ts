@@ -12,14 +12,14 @@ export class CustomLogger extends Logger {
     super(options);
   }
 
-  public logApiInvocation(message) {
+  public logApiInvocation(message: string) {
     this.warn(message);
   }
 
   public morganReqLogOption() {
     return {
       stream: {
-        write: (message) => {
+        write: (message: string) => {
           this.logApiInvocation(message);
         },
       },
